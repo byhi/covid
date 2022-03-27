@@ -1,6 +1,7 @@
 package hu.byhi.example.covidapp;
 
 import hu.byhi.example.covidapp.service.DatabaseLoaderService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,5 +18,10 @@ public class CovidAppApplication {
 	@Bean
 	public void migaretDataIntoDatabase(){
 		databaseLoaderService.initDatabase();
+	}
+
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
 	}
 }
