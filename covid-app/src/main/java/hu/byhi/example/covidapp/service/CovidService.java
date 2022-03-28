@@ -28,7 +28,7 @@ public class CovidService {
     }
 
     public StatusDto getStatusById(Long id) {
-        return modelMapper.map(statusRepository.findById(id), StatusDto.class);
+        return modelMapper.map(statusRepository.findById(id).orElseThrow(IllegalStateException::new), StatusDto.class);
     }
 
     public ArrayList<StatusDto> getStatusByDateFilter(DateFilter dateFilter) {
