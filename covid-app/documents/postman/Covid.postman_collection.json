@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "0726b8eb-ac4d-4b40-919b-953fd4b66694",
+		"name": "Covid",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Creatre status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": null,\r\n        \"infected\": 32,\r\n        \"deceased\": 0,\r\n        \"recovered\": 1,\r\n        \"quarantined\": 159,\r\n        \"tested\": 1236,\r\n        \"sourceUrl\": \"https://koronavirus.gov.hu\",\r\n        \"lastUpdatedAtApify\": \"2020-03-15T11:46:01\",\r\n        \"readMe\": \"https://apify.com/tugkan/covid-hu\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/api/covid/status",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"covid",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get status by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/api/covid/status/12",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"covid",
+						"status",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all status by filter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"intervalStart\": \"2020-03-28T06:06:00\",\r\n  \"intervalEnd\": \"2020-04-06T04:35:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/api/covid/status/filtered",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"covid",
+						"status",
+						"filtered"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/api/covid/status",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"covid",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5191,\r\n    \"infected\": 32,\r\n    \"deceased\": 21,\r\n    \"recovered\": 1,\r\n    \"quarantined\": 159,\r\n    \"tested\": 1236,\r\n    \"sourceUrl\": \"https://koronavirus.gov.hu\",\r\n    \"lastUpdatedAtApify\": \"2020-03-15T11:46:01\",\r\n    \"readMe\": \"https://apify.com/tugkan/covid-hu\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/api/covid/status",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"covid",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete status by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"intervalStart\": \"2020-03-28T06:06:00\",\r\n  \"intervalEnd\": \"2020-04-06T04:35:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/api/covid/status/5191",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"covid",
+						"status",
+						"5191"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		},
+		{
+			"value": "",
+			"disabled": true
+		}
+	]
+}
