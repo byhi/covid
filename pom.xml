@@ -16,5 +16,6 @@
 
     <modules>
         <module>covid-app</module>
+        <module>covid-fe-app</module>
     </modules>
 </project>
