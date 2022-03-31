@@ -1,7 +1,5 @@
 package hu.byhi.example.covidapp.model.dto;
 
-import java.time.LocalDateTime;
-
 public class StatusDto {
 
     private Long id;
