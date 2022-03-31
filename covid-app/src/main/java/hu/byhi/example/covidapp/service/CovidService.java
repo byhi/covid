@@ -4,10 +4,13 @@ import hu.byhi.example.covidapp.model.StatusEntity;
 import hu.byhi.example.covidapp.model.dto.StatusDto;
 import hu.byhi.example.covidapp.model.filter.DateFilter;
 import hu.byhi.example.covidapp.repository.StatusRepository;
+import org.modelmapper.AbstractConverter;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -50,9 +53,24 @@ public class CovidService {
     }
 
     private StatusDto convertToDto(StatusEntity entity) {
-        return modelMapper.map(entity, StatusDto.class);
+        Converter<LocalDateTime, String> toDateString = new AbstractConverter<LocalDateTime, String>() {
+            @Override
+            protected String convert(LocalDateTime source) {
+                return source.toString();
+            }
+        };
+        modelMapper.addConverter(toDateString);
+
+        return  modelMapper.map(entity, StatusDto.class);
     }
     private StatusEntity convertToEntity(StatusDto statusDto) {
+        Converter<String, LocalDateTime> toStringDate = new AbstractConverter<String, LocalDateTime>() {
+            @Override
+            protected LocalDateTime convert(String source) {
+                return LocalDateTime.parse(source);
+            }
+        };
+        modelMapper.addConverter(toStringDate);
         return modelMapper.map(statusDto, StatusEntity.class);
     }
 }

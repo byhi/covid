@@ -11,7 +11,7 @@ public class StatusDto {
     private Integer quarantined;
     private Integer tested;
     private String sourceUrl;
-    private LocalDateTime lastUpdatedAtApify;
+    private String lastUpdatedAtApify;
     private String readMe;
 
     public Long getId() {
@@ -70,11 +70,11 @@ public class StatusDto {
         this.sourceUrl = sourceUrl;
     }
 
-    public LocalDateTime getLastUpdatedAtApify() {
+    public String getLastUpdatedAtApify() {
         return lastUpdatedAtApify;
     }
 
-    public void setLastUpdatedAtApify(LocalDateTime lastUpdatedAtApify) {
+    public void setLastUpdatedAtApify(String lastUpdatedAtApify) {
         this.lastUpdatedAtApify = lastUpdatedAtApify;
     }
 
